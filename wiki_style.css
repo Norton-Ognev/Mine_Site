@@ -1,0 +1,108 @@
+/* Навигация по Wiki */
+.wiki-nav {
+  margin-bottom: 30px;
+}
+
+.wiki-categories {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.wiki-category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  width: 120px;
+  text-decoration: none;
+  color: var(--light-text);
+  transition: all 0.3s ease;
+}
+
+.wiki-category:hover,
+.wiki-category.active {
+  background-color: var(--teal);
+  color: var(--black);
+  transform: translateY(-5px);
+}
+
+.wiki-category i {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* Разделы Wiki */
+.wiki-section {
+  margin-top: 40px;
+  width: 100%;
+}
+
+/* Сетки для крафтов и плагинов */
+.craft-grid,
+.plugin-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.craft-item,
+.plugin {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 3px solid var(--teal);
+}
+
+.craft-item h4,
+.plugin h4 {
+  margin-top: 0;
+  color: var(--teal);
+  font-size: 18px;
+}
+
+.craft-item p,
+.plugin p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+/* Советы по боссам */
+.boss-tips h4 {
+  margin-top: 20px;
+  color: var(--teal);
+}
+
+.boss-tips ul {
+  margin: 10px 0 20px 20px;
+}
+
+.boss-tips li {
+  margin-bottom: 8px;
+}
+
+/* Адаптивность для Wiki */
+@media (max-width: 1024px) {
+  .craft-grid,
+  .plugin-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .wiki-categories {
+    justify-content: center;
+  }
+  
+  .wiki-category {
+    width: 100px;
+    padding: 15px;
+  }
+  
+  .wiki-category i {
+    font-size: 24px;
+  }
+}

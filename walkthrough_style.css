@@ -1,0 +1,417 @@
+/* Сетка для карточек покупки */
+.purchase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin: 30px 0;
+  width: 100%;
+}
+
+/* Карточки покупки */
+.purchase-card {
+  background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(33,33,33,0.9) 100%);
+  border-radius: 15px;
+  padding: 25px;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.purchase-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+}
+
+.purchase-card.walkthrough {
+  border: 2px solid var(--teal);
+}
+
+.purchase-card.walkthrough::before {
+  background: linear-gradient(90deg, var(--teal), var(--accent-hover));
+}
+
+.purchase-card.subscription {
+  border: 2px solid #FFD700;
+}
+
+.purchase-card.subscription::before {
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+}
+
+/* Заголовки карточек */
+.purchase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 206, 209, 0.3);
+}
+
+.purchase-header h3 {
+  margin: 0;
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.purplan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(212, 199, 14, 0.329);
+}
+
+.purplan-header h3 {
+  margin: 0;
+  color: #FFD700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-family: 'VCRFont', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: #FFD700;
+  color: #000;
+}
+
+/* Содержимое карточки проходки */
+.walkthrough-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.walkthrough-info {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.walkthrough-info h4 {
+  color: var(--teal);
+  font-size: 24px;
+}
+
+.walkthrough-info p {
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.walkthrough-price {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.price-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.price-old {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 18px;
+  position: relative;
+  display: flex;
+  align-items: baseline;
+}
+
+.walkthrough-price .price {
+  font-family: 'VCRFont', monospace;
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: var(--teal);
+  font-weight: bold;
+  line-height: 1;
+}
+
+.btn-buy {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: var(--teal);
+  color: var(--black);
+  border: none;
+  border-radius: 5px;
+  font-family: 'VCRFont', monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-buy:hover {
+  background-color: var(--accent-hover);
+  transform: scale(1.02);
+}
+
+/* Особенности проходки */
+.walkthrough-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.walkthrough-features .feature {
+  text-align: center;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.walkthrough-features .feature i {
+  font-size: 24px;
+  color: var(--teal);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.walkthrough-features .feature h5 {
+  margin: 0 0 5px 0;
+  font-size: 14px;
+  color: var(--teal);
+}
+
+.walkthrough-features .feature p {
+  margin: 0;
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* Содержимое карточки подписки */
+.subscription-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.plan-header h4 {
+  color: #FFD700;
+  font-size: 24px;
+}
+
+.plan-header p {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.plan-container {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.plan-container .price {
+  font-family: 'VCRFont', monospace;
+  font-size: 32px;
+  color: #FFD700;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.period {
+  color: #aaa;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.btn-subscribe {
+  padding: 12px;
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  font-family: 'VCRFont', monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: auto;
+}
+
+.btn-subscribe:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Преимущества подписки */
+.subscription-benefits {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(212, 199, 14, 0.1);
+}
+
+.subscription-benefits h4 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 215, 0, 0.1);
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.benefit i {
+  color: #FFD700;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+/* FAQ */
+.faq {
+  margin-top: 20px;
+}
+
+.faq-item {
+  margin-bottom: 10px;
+  border: 1px solid rgba(0, 206, 209, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: var(--light-text);
+  text-align: left;
+  font-family: 'CodecPro', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question i {
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.faq-answer p {
+  padding: 15px 20px;
+  margin: 0;
+}
+
+/* Контакты поддержки */
+.support-contacts {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.support-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background-color: rgba(0, 206, 209, 0.1);
+  border-radius: 8px;
+  color: var(--teal);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.support-link:hover {
+  background-color: rgba(0, 206, 209, 0.2);
+  transform: translateY(-2px);
+}
+
+.support-link i {
+  font-size: 20px;
+}
+
+/* Адаптивность для страницы проходки */
+@media (max-width: 1024px) {
+  .purchase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .walkthrough-features {
+    grid-template-columns: 1fr;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .support-contacts {
+    flex-direction: column;
+  }
+  
+  .support-link {
+    justify-content: center;
+  }
+  
+  .walkthrough-price .price,
+  .plan-container .price {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .purchase-grid {
+    gap: 20px;
+  }
+  
+  .purchase-card {
+    padding: 20px;
+  }
+}

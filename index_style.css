@@ -1,0 +1,153 @@
+/* Контейнер для изображения с текстом */
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 3px solid var(--teal);
+  box-shadow: 0 10px 30px rgba(0, 206, 209, 0.2);
+}
+
+.hero-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.image-container:hover .hero-image {
+  transform: scale(1.02);
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.781) 0%,
+    rgba(0, 0, 0, 0.466) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  color: var(--light-text);
+  padding: 30px;
+  padding-top: 60px;
+}
+
+.image-title {
+  font-family: 'VCRFont', monospace;
+  color: var(--teal);
+  font-size: 32px;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  border-left: 4px solid var(--teal);
+  padding-left: 15px;
+}
+
+.image-description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 600px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.image-overlay .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--teal);
+  color: var(--black);
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-family: 'VCRFont', monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.image-overlay .btn:hover {
+  background-color: transparent;
+  color: var(--teal);
+  border-color: var(--teal);
+  transform: translateY(-3px);
+}
+
+/* Характеристики сервера */
+.server-specs {
+  margin-top: 20px;
+}
+
+.server-specs h3 {
+  margin-bottom: 15px;
+}
+
+.server-specs ul {
+  margin-left: 20px;
+}
+
+.server-specs li {
+  margin-bottom: 8px;
+}
+
+.server-specs strong {
+  color: var(--teal);
+}
+
+/* Сетка особенностей */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.feature {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 3px solid var(--teal);
+}
+
+.feature h3 {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.feature i {
+  color: var(--teal);
+}
+
+/* Адаптивность для главной страницы */
+@media (max-width: 768px) {
+  .image-title {
+    font-size: 24px;
+  }
+  
+  .image-description {
+    font-size: 16px;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-image {
+    height: 300px;
+  }
+  
+  .image-overlay {
+    padding: 20px;
+    padding-top: 40px;
+  }
+}
