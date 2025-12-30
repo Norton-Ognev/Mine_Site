@@ -1,0 +1,67 @@
+/* Подключение первого шрифта */
+@font-face {
+  font-family: 'CodecPro';
+  src: url('fonts/3_CodecProVariable-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; 
+}
+
+/* Подключение второго шрифта */
+@font-face {
+  font-family: 'VCRFont';
+  src: url('fonts/VCROSDMonoNova.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Основные стили body */
+body {
+  background-color: #212121;
+  text-align: center;
+  color: #ffffff;
+  font-family: 'CodecPro', 'VCRFont', monospace; /* Можно указать оба с fallback */
+  line-height: 1.6;        
+  margin: 0;               
+  padding: 20px;
+}
+
+/* Стили для заголовков ВНЕ тела body */
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  font-family: inherit; 
+  color: inherit;       
+  margin: 20px 0 10px 0;
+}
+
+/* Стили для параграфов */
+p {
+  text-align: center;
+  max-width: 600px;    
+  margin: 10px auto;
+}
+
+/* Стили для ссылок */
+a {
+  color: #0066cc;      
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Стили для списков */
+ul, ol {
+  display: inline-block;
+  text-align: left;
+  margin: 10px auto;
+}
+
+/* Стили для изображений */
+img {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+}
