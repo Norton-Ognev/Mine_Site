@@ -1,17 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ServerMinecraft</title>
+    <title>Сервер Minecraft - О сервере</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="card">
-        <img src="img/bestoloch.jpg" alt="Аватар" class="avatar" width="400" height="400">
+    <!-- Левое меню -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h1>Ешкере SMP</h1>
+        </div>
+        
+        <div class="sidebar-nav">
+            <ul>
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> <span>О сервере</span></a></li>
+                <li><a href="wiki.html"><i class="fas fa-book"></i> <span>Wiki</span></a></li>
+                <li><a href="walkthrough.html"><i class="fas fa-map-signs"></i> <span>Проходка</span></a></li>
+                <li><a href="#"><i class="fas fa-users"></i> <span>Участники</span></a></li>
+                <li><a href="#"><i class="fas fa-discord"></i> <span>Discord</span></a></li>
+            </ul>
+        </div>
+        
+        <div class="server-status">
+            <div class="status-indicator online"></div>
+            <span>Сервер онлайн</span>
+        </div>
+    </nav>
 
-    <p style="font-family: 'CodecPro'; "><strong>Ах ты бестолочь</strong> </p>
-    <p style="font-family: 'VCRFont'; ">Вот олухи</p>
-    </div>
+    <!-- Основной контент -->
+    <main class="main-content">
+        <h1 class="fade-in">О сервере</h1>
+            <!-- Контейнер для изображения с текстом -->
+        <div class="image-container fade-in">
+            <img src="img/2024-03-21_20.47.29.png" alt="Скриншот сервера Minecraft" class="hero-image">
+            <div class="image-overlay">
+                <h2 class="image-title">Добро пожаловать в наше приключение!</h2>
+                <p class="image-description">Присоединяйтесь к уникальному миру с кастомными боссами, сложными крафтами и захватывающими сюжетом для каждого сезона</p>
+                <a href="walkthrough.html" class="btn">
+                    <i class="fas fa-play-circle"></i> Начать играть
+                </a>
+            </div>
+        </div>
+
+
+        <div class="card fade-in">
+            <h2><i class="fas fa-server"></i> Техническая информация</h2>
+            <p>Добро пожаловать на наш уникальный Minecraft сервер! Мы создали особую атмосферу с кастомными плагинами, которые превращают обычный геймплей в захватывающее приключение.</p>
+            
+            <div class="server-specs">
+                <h3>Характеристики:</h3>
+                <ul>
+                    <li><strong>Версия:</strong> Minecraft 1.21.11</li>
+                    <li><strong>Плагины:</strong> Кастомная экономика, квесты, рейды, уникальные боссы</li>
+                    <li><strong>Онлайн:</strong> сколько-то человек</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card fade-in">
+            <h2><i class="fas fa-gamepad"></i> Особенности геймплея</h2>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <h3><i class="fas fa-dragon"></i> Уникальные боссы</h3>
+                    <p>Сразитесь с 15+ кастомными боссами, каждый со своими атаками и тактиками.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3><i class="fas fa-hammer"></i> Сложные крафты</h3>
+                    <p>Более 1000 новых рецептов для создания мощного снаряжения.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3><i class="fas fa-quest"></i> Система квестов</h3>
+                    <p>Проходите сюжетные и побочные задания для получения наград.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3><i class="fasfa-shield-alt"></i> Кланы и PvP</h3>
+                    <p>Создавайте кланы, участвуйте в войнах и захватывайте территории.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card fade-in">
+            <h2><i class="fas fa-calendar-alt"></i> События</h2>
+            <p>Каждую неделю на сервере проходят уникальные события с особыми наградами:</p>
+            
+            <ul>
+                <li><strong>Понедельник:</strong> Охота на боссов (двойные луты)</li>
+                <li><strong>Среда:</strong> PvP турниры (призовой фонд)</li>
+                <li><strong>Пятница:</strong> Строительный конкурс</li>
+                <li><strong>Суббота:</strong> Рейд на эпического босса</li>
+                <li><strong>Воскресенье:</strong> Ивент "Выживание с нуля"</li>
+            </ul>
+        </div>
+        
+        <div class="card fade-in">
+            <h2><i class="fas fa-user-plus"></i> Как присоединиться?</h2>
+            <p>Стать частью нашего сообщества просто:</p>
+            
+            <ol>
+                <li>Скачайте и установите Minecraft Forge 1.21.11</li>
+                <li>Добавьте модификации из раздела "Скачать"</li>
+                <li>Подключитесь к серверу: <code class="teal-text">mc.наш-сервер.ru:25565</code></li>
+                <li>Зарегистрируйтесь командой <code>/register пароль</code></li>
+                <li>Начните своё приключение!</li>
+            </ol>
+            
+            <a href="walkthrough.html" class="btn" style="margin-top: 20px;">
+                <i class="fas fa-play-circle"></i> Начать играть
+            </a>
+        </div>
+    </main>
+
+    <script>
+        // Анимация появления
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
 </body>
 </html>
