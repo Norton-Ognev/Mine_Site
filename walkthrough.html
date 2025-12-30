@@ -32,159 +32,161 @@
 
     <!-- Основной контент -->
     <main class="main-content">
-        <h1 class="fade-in">Проходка и Преимущества</h1>
-        
-        <div class="card fade-in">
-            <h2><i class="fas fa-crown"></i> Система проходок и подписок</h2>
-            <p>Для обеспечения безопасности нашего сервера и поддержания работоспособности имеются Подписка и Проходка.</p>
-        </div>
-        
-        <!-- ГРИД с двумя карточками рядом -->
-        <div class="purchase-grid fade-in">
-            <!-- Карточка проходки -->
-            <div class="purchase-card walkthrough">
-                <div class="purchase-header">
-                    <h3><i class="fas fa-trophy"></i> Проходка</h3>
-                </div>
-                
-                <div class="walkthrough-content">
-                    <div class="walkthrough-info">
-                        <h4>Обязательная проходка</h4>
-                        <p>Единоразовая покупка для игры на сервере</p>
+        <div class="content-wrapper">
+            <h1 class="fade-in">Проходка и Преимущества</h1>
+            
+            <div class="card fade-in">
+                <h2><i class="fas fa-crown"></i> Система проходок и подписок</h2>
+                <p>Для обеспечения безопасности нашего сервера и поддержания работоспособности имеются Подписка и Проходка.</p>
+            </div>
+            
+            <!-- ГРИД с двумя карточками рядом -->
+            <div class="purchase-grid fade-in">
+                <!-- Карточка проходки -->
+                <div class="purchase-card walkthrough">
+                    <div class="purchase-header">
+                        <h3><i class="fas fa-trophy"></i> Проходка</h3>
                     </div>
                     
-                    <div class="walkthrough-price">
-                        <div class="price-container">
-                            <span class="price">150 руб</span>
-                            <span class="price-old">300 руб</span>
-                        </div>
-                        <button class="btn-buy" onclick="buyWalkthrough()">
-                            <i class="fas fa-shopping-cart"></i> Купить проходку
-                        </button>
-                    </div>
-                    
-                    <div class="walkthrough-features">
-                        <div class="feature">
-                            <i class="fas fa-bolt"></i>
-                            <h5>Быстрая доставка</h5>
-                            <p>Играйте на сервере сразу после оплаты</p>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-shield-alt"></i>
-                            <h5>Безопасная оплата</h5>
-                            <p>SSL шифрование и защита данных</p>
+                    <div class="walkthrough-content">
+                        <div class="walkthrough-info">
+                            <h4>Обязательная проходка</h4>
+                            <p>Единоразовая покупка для игры на сервере</p>
                         </div>
                         
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Карточка подписки -->
-            <div class="purchase-card subscription">
-                <div class="purplan-header">
-                    <h3><i class="fas fa-star"></i> Подписка</h3>
-                    <span class="badge">VIP</span>
-                </div>
-                
-                <div class="subscription-content">
-                    <div class="plan-header">
-                        <h4>Премиум</h4>
-                        <p>Для поддержки сервера</p>
-                    </div>
-                    <div class="walkthrough-price">
-                        <div class="plan-container">
-                            <span class="price">300 руб</span>
-                            <span class="period">/месяц</span>
+                        <div class="walkthrough-price">
+                            <div class="price-container">
+                                <span class="price">150 руб</span>
+                                <span class="price-old">300 руб</span>
+                            </div>
+                            <button class="btn-buy" onclick="buyWalkthrough()">
+                                <i class="fas fa-shopping-cart"></i> Купить проходку
+                            </button>
+                        </div>
+                        
+                        <div class="walkthrough-features">
+                            <div class="feature">
+                                <i class="fas fa-bolt"></i>
+                                <h5>Быстрая доставка</h5>
+                                <p>Играйте на сервере сразу после оплаты</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <h5>Безопасная оплата</h5>
+                                <p>SSL шифрование и защита данных</p>
+                            </div>
+                            
                         </div>
                     </div>
+                </div>
+                
+                <!-- Карточка подписки -->
+                <div class="purchase-card subscription">
+                    <div class="purplan-header">
+                        <h3><i class="fas fa-star"></i> Подписка</h3>
+                        <span class="badge">VIP</span>
+                    </div>
                     
-                    <button class="btn-subscribe" onclick="buySubscription()">
-                        <i class="fas fa-crown"></i> Купить подписку
-                    </button>
-                    
-                    <div class="subscription-benefits">
-                        <h4><i class="fas fa-gift"></i> Включено в подписку:</h4>
-                        <div class="benefits-grid">
+                    <div class="subscription-content">
+                        <div class="plan-header">
+                            <h4>Премиум</h4>
+                            <p>Для поддержки сервера</p>
+                        </div>
+                        <div class="walkthrough-price">
+                            <div class="plan-container">
+                                <span class="price">300 руб</span>
+                                <span class="period">/месяц</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn-subscribe" onclick="buySubscription()">
+                            <i class="fas fa-crown"></i> Купить подписку
+                        </button>
+                        
+                        <div class="subscription-benefits">
+                            <h4><i class="fas fa-gift"></i> Включено в подписку:</h4>
+                            <div class="benefits-grid">
 
-                            <div class="benefit">
-                                <i class="fas fa-key"></i>
-                                <span>Доступ к тестовым функциям</span>
-                            </div>
-                            <div class="benefit">
-                                <i class="fas fa-palette"></i>
-                                <span>Цветной ник в чате</span>
+                                <div class="benefit">
+                                    <i class="fas fa-key"></i>
+                                    <span>Доступ к тестовым функциям</span>
+                                </div>
+                                <div class="benefit">
+                                    <i class="fas fa-palette"></i>
+                                    <span>Цветной ник в чате</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- FAQ секция -->
-        <div class="card fade-in">
-            <h3><i class="fas fa-question-circle"></i> Частые вопросы</h3>
             
-            <div class="faq">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Как происходит доставка предметов?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>После успешной оплаты предметы автоматически добавляются в ваш инвентарь на сервере. Если вы оффлайн - предметы будут ждать в специальном сундуке при входе.</p>
-                    </div>
-                </div>
+            <!-- FAQ секция -->
+            <div class="card fade-in">
+                <h3><i class="fas fa-question-circle"></i> Частые вопросы</h3>
                 
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Можно ли отменить подписку?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Да, вы можете отменить подписку в любое время в личном кабинете. Доступ к привилегиям сохранится до конца оплаченного периода.</p>
+                <div class="faq">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Как происходит доставка предметов?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>После успешной оплаты предметы автоматически добавляются в ваш инвентарь на сервере. Если вы оффлайн - предметы будут ждать в специальном сундуке при входе.</p>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Есть ли скидки при покупке на долгий срок?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Да! При оплате подписки на 3 месяца - скидка 10%, на 6 месяцев - 20%, на год - 30%. Для проходки действуют сезонные акции.</p>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Можно ли отменить подписку?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Да, вы можете отменить подписку в любое время в личном кабинете. Доступ к привилегиям сохранится до конца оплаченного периода.</p>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Что выбрать: проходку или подписку?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Проходка - разовая покупка ресурсов для быстрого старта. Подписка - постоянные привилегии на срок оплаты. Многие игроки берут и то, и другое для максимального комфорта.</p>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Есть ли скидки при покупке на долгий срок?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Да! При оплате подписки на 3 месяца - скидка 10%, на 6 месяцев - 20%, на год - 30%. Для проходки действуют сезонные акции.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Что выбрать: проходку или подписку?
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Проходка - разовая покупка ресурсов для быстрого старта. Подписка - постоянные привилегии на срок оплаты. Многие игроки берут и то, и другое для максимального комфорта.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Контакты для поддержки -->
-        <div class="card fade-in">
-            <h3><i class="fas fa-headset"></i> Нужна помощь?</h3>
-            <p>Если у вас возникли вопросы по покупке или доставке, обратитесь в нашу поддержку:</p>
             
-            <div class="support-contacts">
-                <a href="#" class="support-link">
-                    <i class="fab fa-discord"></i>
-                    <span>Discord поддержки</span>
-                </a>
-                <a href="#" class="support-link">
-                    <i class="fas fa-envelope"></i>
-                    <span>support@server.ru</span>
-                </a>
-                <a href="#" class="support-link">
-                    <i class="fab fa-vk"></i>
-                    <span>Группа ВКонтакте</span>
-                </a>
+            <!-- Контакты для поддержки -->
+            <div class="card fade-in">
+                <h3><i class="fas fa-headset"></i> Нужна помощь?</h3>
+                <p>Если у вас возникли вопросы по покупке или доставке, обратитесь в нашу поддержку:</p>
+                
+                <div class="support-contacts">
+                    <a href="#" class="support-link">
+                        <i class="fab fa-discord"></i>
+                        <span>Discord поддержки</span>
+                    </a>
+                    <a href="#" class="support-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@server.ru</span>
+                    </a>
+                    <a href="#" class="support-link">
+                        <i class="fab fa-vk"></i>
+                        <span>Группа ВКонтакте</span>
+                    </a>
+                </div>
             </div>
         </div>
     </main>
