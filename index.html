@@ -29,7 +29,7 @@
     
     <div class="profile-divider"></div>
     
-    <!-- Личный кабинет под разделителем -->
+    <!-- Личный кабинет -->
     <div class="profile-menu-item">
       <a href="pages/profile.html" class="nav-item" data-page="profile">
         <i class="fas fa-user-circle"></i><span>Личный кабинет</span>
@@ -44,7 +44,7 @@
       </div>
       <div class="online-status">
         <span class="online-dot"></span>
-        <span id="onlineCount">248</span> игроков онлайн
+        <span id="onlineCount">N</span> игроков онлайн
       </div>
     </div>
   </div>
@@ -54,7 +54,8 @@
   </div>
 </div>
 
-<script src="main.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
 <script>
   function copyIP() {
     const ip = document.getElementById('serverIp').innerText;
@@ -66,6 +67,18 @@
       btn.innerHTML = originalText;
     }, 2000);
   }
+  
+  // Симуляция онлайн-счетчика
+  let onlineCount = 248;
+  setInterval(() => {
+    const change = Math.floor(Math.random() * 7) - 3;
+    let newCount = onlineCount + change;
+    if (newCount < 120) newCount = 120;
+    if (newCount > 450) newCount = 450;
+    onlineCount = newCount;
+    const onlineSpan = document.getElementById('onlineCount');
+    if (onlineSpan) onlineSpan.textContent = onlineCount;
+  }, 30000);
 </script>
 </body>
 </html>

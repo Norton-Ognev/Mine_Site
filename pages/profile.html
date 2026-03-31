@@ -3,93 +3,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Личный кабинет | EnderCraft</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
+    <title>Личный кабинет - Игровой сервер</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Дополнительные стили для личного кабинета */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #22ff88, #0a5c2e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            box-shadow: 0 0 30px rgba(34, 255, 136, 0.3);
+        }
+        
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid rgba(34, 255, 136, 0.25);
+            transition: all 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: #22ff88;
+            box-shadow: 0 5px 20px rgba(34, 255, 136, 0.1);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #22ff88;
+        }
+        
+        .subscription-timer {
+            background: linear-gradient(135deg, rgba(34, 255, 136, 0.1), rgba(34, 255, 136, 0.05));
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(34, 255, 136, 0.3);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #22ff88, #0a5c2e);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #22ff88;
+            color: #22ff88;
+            padding: 12px 28px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline:hover {
+            background: #22ff88;
+            color: #000;
+            transform: scale(1.02);
+        }
+        
+        .btn-danger {
+            background: rgba(255, 68, 68, 0.2);
+            border: 1px solid #ff4444;
+            color: #ff4444;
+        }
+        
+        .btn-danger:hover {
+            background: #ff4444;
+            color: #fff;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .info-label {
+            color: #888;
+            font-weight: 500;
+        }
+        
+        .info-value {
+            color: #fff;
+            font-weight: 600;
+        }
+        
+        .badge-license {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        
+        .badge-original {
+            background: rgba(34, 255, 136, 0.2);
+            color: #22ff88;
+        }
+        
+        .badge-pirate {
+            background: rgba(255, 68, 68, 0.2);
+            color: #ff8888;
+        }
+        
+        .badge-active {
+            background: rgba(34, 255, 136, 0.2);
+            color: #22ff88;
+        }
+        
+        .badge-inactive {
+            background: rgba(255, 68, 68, 0.2);
+            color: #ff8888;
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(34, 255, 136, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(34, 255, 136, 0.6); }
+        }
+        
+        .glow-animation {
+            animation: glow 2s infinite;
+        }
+    </style>
 </head>
-<body style="background: transparent; overflow-y: auto; padding: 0;">
+<body>
     <div class="page-content">
-        <div class="glass-card">
-            <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
-                <i class="fas fa-user-circle" style="font-size: 4rem; color: #22ff88;"></i>
-                <div>
-                    <h1 id="profileUsername" style="margin-bottom: 0.3rem;">Загрузка...</h1>
-                    <p><i class="fas fa-id-card"></i> ID: #MC-1042 | <i class="fas fa-calendar"></i> На сервере с: 15.03.2023</p>
-                </div>
+        <?php
+        require_once 'config.php';
+        
+        if (!isset($_SESSION['user_id'])) {
+            header("Location: login.html");
+            exit;
+        }
+        
+        // Обновляем данные о подписке
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+        $stmt->execute([$_SESSION['user_id']]);
+        $user = $stmt->fetch();
+        
+        // Проверяем, не истекла ли подписка
+        if ($user['subscription_expires'] && strtotime($user['subscription_expires']) < time()) {
+            $updateStmt = $pdo->prepare("UPDATE users SET subscription_active = 0, subscription_days = 0 WHERE id = ?");
+            $updateStmt->execute([$_SESSION['user_id']]);
+            $user['subscription_active'] = 0;
+            $user['subscription_days'] = 0;
+            $_SESSION['subscription_active'] = 0;
+            $_SESSION['subscription_days'] = 0;
+        }
+        
+        // Рассчитываем процент прошедшего времени подписки (если есть дата окончания)
+        $progressPercent = 0;
+        if ($user['subscription_expires'] && $user['subscription_active']) {
+            $start = strtotime($user['created_at']);
+            $end = strtotime($user['subscription_expires']);
+            $now = time();
+            $total = $end - $start;
+            $remaining = $end - $now;
+            if ($total > 0) {
+                $progressPercent = (($total - $remaining) / $total) * 100;
+            }
+        }
+        ?>
+        
+        <div class="profile-header">
+            <div class="avatar">
+                <?php echo strtoupper(substr($user['username'], 0, 1)); ?>
             </div>
-            
-            <div style="margin-bottom: 2rem;">
-                <span class="badge"><i class="fas fa-trophy"></i> Ранг: Алмазный</span>
-                <span class="badge"><i class="fas fa-star"></i> Уровень: 87</span>
-                <span class="badge"><i class="fas fa-clock"></i> Время в игре: 342 часа</span>
-                <span class="badge"><i class="fas fa-chart-line"></i> Репутация: 2450</span>
-            </div>
-            
-            <div class="content-grid">
-                <div class="feature-card">
-                    <h3><i class="fas fa-chart-simple"></i> Игровая статистика</h3>
-                    <ul style="margin-top: 1rem; list-style: none;">
-                        <li><i class="fas fa-skull"></i> Убийств боссов: <strong>47</strong></li>
-                        <li><i class="fas fa-hammer"></i> Уникальных крафтов: <strong>23</strong></li>
-                        <li><i class="fas fa-dragon"></i> Побеждено миф. боссов: <strong>12</strong></li>
-                        <li><i class="fas fa-trophy"></i> Достижений получено: <strong>34</strong></li>
-                        <li><i class="fas fa-gem"></i> Собрано ресурсов: <strong>12,450</strong></li>
-                    </ul>
-                </div>
-                
-                <div class="feature-card">
-                    <h3><i class="fas fa-coins"></i> Экономика</h3>
-                    <ul style="margin-top: 1rem; list-style: none;">
-                        <li><i class="fas fa-circle-dollar"></i> Баланс монет: <strong>12,500</strong></li>
-                        <li><i class="fas fa-gem"></i> Кристаллы: <strong>347</strong></li>
-                        <li><i class="fas fa-key"></i> Легендарные ключи: <strong>3</strong></li>
-                        <li><i class="fas fa-ticket"></i> Токены событий: <strong>128</strong></li>
-                    </ul>
-                </div>
-                
-                <div class="feature-card">
-                    <h3><i class="fas fa-store"></i> Привилегии</h3>
-                    <ul style="margin-top: 1rem; list-style: none;">
-                        <li><i class="fas fa-check-circle" style="color:#22ff88;"></i> Премиум-статус до: <strong>01.07.2025</strong></li>
-                        <li><i class="fas fa-check-circle" style="color:#22ff88;"></i> Сезонный пасс: <strong>Активен</strong></li>
-                        <li><i class="fas fa-check-circle" style="color:#22ff88;"></i> VIP-голосовой чат: <strong>Доступен</strong></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="glass-card" style="margin-top: 1rem; padding: 1.5rem;">
-                <h3><i class="fas fa-sliders-h"></i> Настройки аккаунта</h3>
-                <div style="margin-top: 1rem;">
-                    <button class="btn-green" id="changeNickBtn" style="margin-right: 1rem;"><i class="fas fa-pen"></i> Сменить ник</button>
-                    <button class="btn-green" onclick="alert('Смена пароля (демо)')"><i class="fas fa-lock"></i> Сменить пароль</button>
-                </div>
-                <p style="margin-top: 1rem; font-size: 0.85rem; color: #aaa;"><i class="fas fa-info-circle"></i> Никнейм можно менять раз в 30 дней. Новый ник должен быть от 3 до 16 символов.</p>
+            <div>
+                <h1 style="margin-bottom: 0.5rem;">Добро пожаловать, <?php echo htmlspecialchars($user['username']); ?>!</h1>
+                <p style="color: #22ff88; margin: 0;">
+                    <i class="fas fa-calendar-alt"></i> С нами с <?php echo date('d.m.Y', strtotime($user['created_at'])); ?>
+                </p>
             </div>
         </div>
+        
+        <div class="profile-stats">
+            <div class="stat-card">
+                <div class="stat-label">ID пользователя</div>
+                <div class="stat-value">#<?php echo $user['id']; ?></div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Тип лицензии</div>
+                <div class="stat-value">
+                    <span class="badge-license <?php echo $user['license_type'] == 'original' ? 'badge-original' : 'badge-pirate'; ?>">
+                        <?php echo $user['license_type'] == 'original' ? 'Лицензия' : 'Пиратка'; ?>
+                    </span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Статус подписки</div>
+                <div class="stat-value">
+                    <span class="badge-license <?php echo $user['subscription_active'] ? 'badge-active' : 'badge-inactive'; ?>">
+                        <?php echo $user['subscription_active'] ? 'Активна ✓' : 'Не активна ✗'; ?>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="glass-card">
+            <h3><i class="fas fa-user-circle"></i> Информация об аккаунте</h3>
+            
+            <div class="info-row">
+                <span class="info-label"><i class="fas fa-user"></i> Логин:</span>
+                <span class="info-value"><?php echo htmlspecialchars($user['username']); ?></span>
+            </div>
+            
+            <div class="info-row">
+                <span class="info-label"><i class="fas fa-envelope"></i> Email:</span>
+                <span class="info-value"><?php echo htmlspecialchars($user['email']); ?></span>
+            </div>
+            
+            <div class="info-row">
+                <span class="info-label"><i class="fas fa-tag"></i> Тип лицензии:</span>
+                <span class="info-value">
+                    <?php if ($user['license_type'] == 'original'): ?>
+                        <span style="color: #22ff88;">Лицензия</span> <i class="fas fa-check-circle" style="color: #22ff88;"></i>
+                    <?php else: ?>
+                        <span style="color: #ff8888;">Пиратка</span> <i class="fas fa-skull" style="color: #ff8888;"></i>
+                    <?php endif; ?>
+                </span>
+            </div>
+            
+            <div class="info-row">
+                <span class="info-label"><i class="fas fa-clock"></i> Последний вход:</span>
+                <span class="info-value">
+                    <?php echo $user['last_login'] ? date('d.m.Y H:i', strtotime($user['last_login'])) : 'Первый вход'; ?>
+                </span>
+            </div>
+        </div>
+        
+        <?php if ($user['subscription_active'] && $user['subscription_days'] > 0): ?>
+        <div class="subscription-timer glow-animation">
+            <h3><i class="fas fa-crown"></i> Премиум подписка</h3>
+            
+            <div class="info-row">
+                <span class="info-label"><i class="fas fa-hourglass-half"></i> Осталось дней:</span>
+                <span class="info-value" style="font-size: 1.5rem; color: #22ff88;"><?php echo $user['subscription_days']; ?> дней</span>
+            </div>
+            
+            <div class="info-row">
+                <span class="info-label"><i class="fas fa-calendar-check"></i> Действует до:</span>
+                <span class="info-value"><?php echo date('d.m.Y', strtotime($user['subscription_expires'])); ?></span>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: <?php echo min(100, $progressPercent); ?>%"></div>
+            </div>
+            <p style="font-size: 0.85rem; color: #888; margin-top: 0.5rem;">
+                <i class="fas fa-chart-line"></i> Прогресс использования: <php echo round($progressPercent, 1); ?>%
+            </p>
+        </div>
+        <php else:>
+        <div class="glass-card" style="text-align: center; border-color: rgba(255, 68, 68, 0.3);">
+            <i class="fas fa-lock" style="font-size: 3rem; color: #ff8888; margin-bottom: 1rem; display: block;"></i>
+            <h3 style="color: #ff8888;">Премиум доступ закрыт</h3>
+            <p>Приобретите проходку, чтобы получить доступ к привилегиям на сервере</p>
+            <button class="btn-green" onclick="window.location.href='../api/buy_subscription.html'" style="margin-top: 1rem;">
+                <i class="fas fa-shopping-cart"></i> Купить проходку
+            </button>
+        </div>
+        <php endif;>
+        
+        <div class="action-buttons">
+            <php if (!$user['subscription_active']):>
+                <button class="btn-green" onclick="window.location.href='../api/buy_subscription.html'">
+                    <i class="fas fa-crown"></i> Приобрести премиум
+                </button>
+            <php endif;>
+            <button class="btn-outline btn-danger" onclick="if(confirm('Вы уверены, что хотите выйти?')) window.location.href='../api/logout.php'">
+                <i class="fas fa-sign-out-alt"></i> Выйти
+            </button>
+        </div>
     </div>
-    
-    <script>
-        const savedUser = localStorage.getItem('minecraftUser');
-        let currentUser = savedUser ? JSON.parse(savedUser) : { username: "CreeperMaster", rank: "Алмазный" };
-        
-        document.getElementById('profileUsername').innerHTML = currentUser.username + " • " + currentUser.rank;
-        
-        document.getElementById('changeNickBtn').addEventListener('click', () => {
-            let newNick = prompt("Введите новый никнейм (от 3 до 16 символов):", currentUser.username);
-            if (newNick && newNick.trim().length >= 3 && newNick.trim().length <= 16) {
-                currentUser.username = newNick.trim();
-                localStorage.setItem('minecraftUser', JSON.stringify(currentUser));
-                document.getElementById('profileUsername').innerHTML = currentUser.username + " • " + currentUser.rank;
-                
-                // Обновляем в сайдбаре
-                const sidebarUsername = window.parent.document.getElementById('sidebarUsername');
-                if (sidebarUsername) sidebarUsername.textContent = currentUser.username;
-                
-                alert("Никнейм успешно обновлён!");
-            } else if (newNick) {
-                alert("Никнейм должен быть от 3 до 16 символов!");
-            }
-        });
-    </script>
 </body>
 </html>

@@ -38,6 +38,13 @@
                 </div>
             </div>
         </div>
+        <div class="glass-card timer-card">
+            <p>До открытия сервера:</p>
+            <span id="timer-days" class="timer-number">00</span> D :
+            <span id="timer-hours" class="timer-number">00</span> H :
+            <span id="timer-minutes" class="timer-number">00</span> M :
+            <span id="timer-seconds" class="timer-number">00</span> S
+        </div>
         
         <!-- Новости -->
         <div class="glass-card">
@@ -83,5 +90,35 @@
             </div>
         </div>
     </div>
+    <script>
+        // Установите вашу целевую дату (год, месяц (0-11), день, час, минута, секунда)
+        const targetDate = new Date(2026, 5, 1, 18, 59, 59); // 31 декабря 2025, 23:59:59
+        
+        function updateCountdown() {
+            const now = new Date();
+            const diff = targetDate - now;
+            
+            if (diff <= 0) {
+                document.getElementById('timer-days').textContent = '00';
+                document.getElementById('timer-hours').textContent = '00';
+                document.getElementById('timer-minutes').textContent = '00';
+                document.getElementById('timer-seconds').textContent = '00';
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('timer-days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('timer-hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('timer-minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('timer-seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>

@@ -256,6 +256,24 @@ body {
   border-color: rgba(34, 255, 136, 0.5);
 }
 
+.timer-card {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white; /* цвет для букв D, H, M, S */
+}
+
+.timer-number {
+  font-size: 4rem;
+  font-weight: bold;
+  display: inline-block;
+  min-width: 90px;
+}
+
+/* Опционально: если хотите чтобы двоеточия тоже были зелёными */
+.timer-card span:not(.timer-number) {
+  color: #22ff88;
+}
 /* Увеличенные отступы для текста */
 h1 {
   font-size: 2.5rem;
