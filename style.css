@@ -12,7 +12,7 @@ body {
   height: 100vh;
 }
 
-/* Жидкостеклянный фон */
+/* Фон */
 .glass-bg {
   position: fixed;
   top: 0;
@@ -46,7 +46,7 @@ body {
   position: relative;
 }
 
-/* Боковое меню - больше воздуха */
+/* Боковое меню */
 .sidebar {
   width: 300px;
   background: rgba(10, 10, 10, 0.55);
@@ -64,7 +64,7 @@ body {
 }
 
 .logo-area {
-  margin-bottom: 0.5rem;
+  text-align: center; /* Добавьте это - выравнивает весь текст по центру */
 }
 
 .logo-area h2 {
@@ -75,12 +75,14 @@ body {
   background-clip: text;
   color: transparent;
   letter-spacing: -0.5px;
+  margin-right:7px;
 }
 
 .logo-area p {
   font-size: 1rem;
   color: #888;
-  margin-top: 6px;
+  margin-top: -20px;
+  margin-right:7px;
 }
 
 /* Навигация */
@@ -88,6 +90,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin-top: 15px;
 }
 
 .nav-item {
@@ -227,7 +230,7 @@ body {
   }
 }
 
-/* Стили для страниц - больше воздуха */
+/* Стили для страниц */
 .page-content {
   padding: 0.5rem;
 }
@@ -260,21 +263,16 @@ body {
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
-  color: white; /* цвет для букв D, H, M, S */
+  color: rgb(167, 167, 167); 
 }
 
 .timer-number {
-  font-size: 4rem;
-  font-weight: bold;
+  font-size: 3.5rem;
   display: inline-block;
   min-width: 90px;
+  color: rgb(255, 255, 255); 
 }
 
-/* Опционально: если хотите чтобы двоеточия тоже были зелёными */
-.timer-card span:not(.timer-number) {
-  color: #22ff88;
-}
-/* Увеличенные отступы для текста */
 h1 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
@@ -297,7 +295,7 @@ h3 {
 }
 
 p {
-  line-height: 1.6;
+  line-height: 1.4;
   margin-bottom: 1rem;
 }
 
@@ -404,7 +402,7 @@ li {
 .wiki-content.active-wiki {
   display: block;
 }
-
+/* Покупка проходки */
 .plan-card {
   background: rgba(0,0,0,0.6);
   border-radius: 24px;
@@ -429,6 +427,76 @@ li {
   font-weight: bold;
   color: #22ff88;
   margin: 1rem 0;
+}
+
+/* FAQ блок */
+.faq-section {
+  margin-top: 2rem;
+}
+
+.faq-item {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(34, 255, 136, 0.25);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(34, 255, 136, 0.5);
+  transform: translateY(-2px);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+}
+
+.faq-question:hover {
+  background: rgba(34, 255, 136, 0.08);
+}
+
+.faq-question i {
+  color: #22ff88;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  padding: 0 1.5rem;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  border-top: 1px solid transparent;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  padding: 1rem 1.5rem 1.25rem;
+  border-top-color: rgba(34, 255, 136, 0.25);
+}
+
+.faq-answer p {
+  margin-bottom: 0.5rem;
+}
+
+.faq-answer p:last-child {
+  margin-bottom: 0;
 }
 
 /* Сетка для контента */

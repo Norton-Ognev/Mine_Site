@@ -1,3 +1,43 @@
+<script>
+// Проверка авторизации при загрузке главной
+async function checkAuthAndLoadUser() {
+    try {
+        const response = await fetch('/api/check-auth.php', {
+            credentials: 'include'
+        });
+        const data = await response.json();
+        
+        if (!data.authenticated) {
+            window.location.href = '/login.html';
+            return;
+        }
+        
+        // Показываем приветствие (можно добавить куда-нибудь на страницу)
+        console.log('Привет, ' + data.user.minecraft_nick);
+        
+        // Если есть место для отображения информации о пользователе
+        const userInfo = document.getElementById('userInfo');
+        if (userInfo) {
+            userInfo.innerHTML = `
+                    <button onclick="logout()" class="btn-green" style="margin-top: 1rem;">Выйти</button>
+            `;
+        }
+    } catch(e) {
+        console.error('Ошибка проверки авторизации', e);
+        window.location.href = '/login.html';
+    }
+}
+
+function logout() {
+    fetch('/api/logout.php', { method: 'POST', credentials: 'include' })
+        .then(() => window.location.href = '/login.html')
+        .catch(() => window.location.href = '/login.html');
+}
+
+// Запускаем проверку при загрузке страницы
+checkAuthAndLoadUser();
+</script>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -31,17 +71,62 @@
     
     <!-- Личный кабинет -->
     <div class="profile-menu-item">
-      <a href="pages/profile.html" class="nav-item" data-page="profile">
-        <i class="fas fa-user-circle"></i><span>Личный кабинет</span>
-      </a>
+      <a href="pages/profile1.html" class="nav-item" data-page="profile1"><i class="fas fa-user-circle"></i><span>Личный кабинет</span></a>
+          <div id="userInfo"></div>
     </div>
+    <script>
+    async function copyIP(event) {
+      const ip = document.getElementById('serverIp').innerText;
+      const btn = event.target.closest('.copy-btn');
+      const originalText = btn.innerHTML;
+      
+      // Пробуем современный метод
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(ip);
+          showSuccess(btn, originalText);
+          return;
+        } catch (err) {
+          console.log('Clipboard API failed, falling back');
+        }
+      }
+      
+      // Фолбэк для HTTP
+      const textarea = document.createElement('textarea');
+      textarea.value = ip;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      
+      try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+          showSuccess(btn, originalText);
+        } else {
+          alert('Не удалось скопировать');
+        }
+      } catch (err) {
+        alert('Не удалось скопировать текст');
+      }
+      
+      document.body.removeChild(textarea);
+    }
     
+    function showSuccess(btn, originalText) {
+      btn.innerHTML = '<i class="fas fa-check"></i> Скопировано!';
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+      }, 2000);
+    }
+    </script>
+
     <!-- Нижняя панель с IP и онлайн -->
     <div class="server-info">
       <div class="ip-container">
-        <span class="ip-address" id="serverIp">Timefall.org</span>
-        <button class="copy-btn" onclick="copyIP()"><i class="fas fa-copy"></i></button>
-      </div>
+          <span class="ip-address" id="serverIp">Timefall.org</span>
+          <button class="copy-btn" onclick="copyIP(event)"><i class="fas fa-copy"></i></button>
+        </div>
       <div class="online-status">
         <span class="online-dot"></span>
         <span id="onlineCount">N</span> игроков онлайн
@@ -57,17 +142,6 @@
 <script src="js/main.js"></script>
 <script src="js/auth.js"></script>
 <script>
-  function copyIP() {
-    const ip = document.getElementById('serverIp').innerText;
-    navigator.clipboard.writeText(ip);
-    const btn = event.target.closest('.copy-btn');
-    const originalText = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-check"></i> Скопировано!';
-    setTimeout(() => {
-      btn.innerHTML = originalText;
-    }, 2000);
-  }
-  
   // Симуляция онлайн-счетчика
   let onlineCount = 248;
   setInterval(() => {
