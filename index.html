@@ -1,43 +1,3 @@
-<script>
-// Проверка авторизации при загрузке главной
-async function checkAuthAndLoadUser() {
-    try {
-        const response = await fetch('/api/check-auth.php', {
-            credentials: 'include'
-        });
-        const data = await response.json();
-        
-        if (!data.authenticated) {
-            window.location.href = '/login.html';
-            return;
-        }
-        
-        // Показываем приветствие (можно добавить куда-нибудь на страницу)
-        console.log('Привет, ' + data.user.minecraft_nick);
-        
-        // Если есть место для отображения информации о пользователе
-        const userInfo = document.getElementById('userInfo');
-        if (userInfo) {
-            userInfo.innerHTML = `
-                    <button onclick="logout()" class="btn-green" style="margin-top: 1rem;">Выйти</button>
-            `;
-        }
-    } catch(e) {
-        console.error('Ошибка проверки авторизации', e);
-        window.location.href = '/login.html';
-    }
-}
-
-function logout() {
-    fetch('/api/logout.php', { method: 'POST', credentials: 'include' })
-        .then(() => window.location.href = '/login.html')
-        .catch(() => window.location.href = '/login.html');
-}
-
-// Запускаем проверку при загрузке страницы
-checkAuthAndLoadUser();
-</script>
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -56,7 +16,7 @@ checkAuthAndLoadUser();
   <!-- Левая навигация -->
   <div class="sidebar">
     <div class="logo-area">
-      <h2>Timefall</h2>
+      <h2>TimeFall</h2>
       <p>Vanilla+ сервер</p>
     </div>
     
